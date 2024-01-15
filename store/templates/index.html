@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block links %}
+<script src="https://kit.fontawesome.com/f17774750a.js" crossorigin="anonymous"></script>
+{% endblock links %}
+
+{% block content %}
+
+
+
+{% load cart %}
+{% load custom_filter %}
+
+
+   <!-- Header / Hero Section -->
+    <header class="jumbotron text-center">
+        <div class="container">
+            <h1 class="display-4">Welcome</h1>
+            <p class="lead">Discover the latest trends in our collection</p>
+            <a class="btn btn-light btn-lg" href="#products" role="button">Shop Now</a>
+        </div>
+    </header>
+
+    <!--About us section-->
+    <section id="about-us" class="container">
+
+        <div class="inner d-flex justify-content-between">
+            <div class="image-section mr-3"><img src="{% static 'images/thatssoglossy.jpeg' %}" class="img-fluid" alt=""></div>
+            <div class="writeup d-flex align-items-center">
+                <p>Welcome to That's So Trendy Girl, your source for luxury beauty essentials. Explore our curated collection of premium perfumes, vibrant lipsticks, and sumptuous body butter designed to enhance your unique beauty.</p>
+        </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="container mt-5">
+        <div class="row">
+            {% for product in products|slice:":6" %}
+            <div class="col-md-4 col-lg-3">
+                <div class="product-card w-90">
+                    <img src="{{product.image.url}}" alt="Product 2" class="img-fluid mb-3">
+                    <h4>{{product.name}}</h4>
+                    <p>{{product.price|currency}}</p>
+                    <div class="add-cart">
+                        {% if product|is_in_cart:request.session.cart %}
+                            <div class="input-group d-flex">
+                                <form action="/#{{product.id}}" method="post" class="input-group" style="width:auto !important;">
+                                    {% csrf_token %}
+                                    <input type="hidden" name='product' value='{{product.id}}'>
+                                    <input type="hidden" name='remove' value='True'>
+                                    <button type="submit" class="btn btn-secondary plusmin"> - </button>
+                                </form>
+                                <input type="text" value="{{product|cart_quantity:request.session.cart}}" class="form-control mx-3" style="width:10px;">
+                                <form action="/#{{product.id}}" method="post" class="input-group" style="width:auto !important;">
+                                    {% csrf_token %}
+                                    <input type="hidden" name='product' value='{{product.id}}'>
+                                    <button type="submit" class="btn btn-secondary plusmin"> + </button>
+                                </form>
+                            </div>
+                        {% else %}
+                            <form action="/#{{product.id}}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name='product' value='{{product.id}}'>
+                                <button type="submit" class="btn btn-dark button">Add To Cart</button>
+                            </form>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section
+
+
+{% endblock %}

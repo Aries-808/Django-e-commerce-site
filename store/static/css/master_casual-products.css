@@ -1,0 +1,197 @@
+.casual-page{
+    margin-top: 20px;
+    padding: 0 50px 0 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.casual-page .leftside{
+    height: 60vh;
+    width: 30%;
+    display: grid;
+    gap: 2rem;
+    border: 1px solid #f2f0f1ff;
+    border-radius: 1rem;
+    padding: 20px;
+}
+.casual-page .leftside .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.casual-page .leftside .top i{display: none;}
+.casual-page .leftside .bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.casual-page .leftside .size-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+.casual-page .leftside .size-container .size-boxes{
+    background-color: #d9d9d9ff;
+    padding: 10px;
+    border-radius: 1rem;
+}
+.casual-page .leftside .size-container .size-boxes:hover{
+    background-color: #000000;
+    color: #fff;
+    cursor: pointer;
+}
+.casual-page .leftside button{
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 1rem;
+}
+
+
+.casual-page .rightside{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.casual-page .rightside .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* styling for product container */
+.casual-products-container{
+    display: grid;
+    grid-template-columns: 3 1fr;
+    gap: 1.5rem;
+}
+.casual-products-container .products-box{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 15rem;
+}
+.casual-products-container .products-box img{
+    max-width: 100%;
+    background-color: var(--gray);
+    border-radius: 15px;
+}
+.casual-products-container .products-box img:hover{
+    border: 1px solid #000000;
+}
+
+.casual-page .rightside .navigate{
+    display: flex;
+    justify-content: space-between;
+}
+.casual-page .rightside .navigate a{
+    border: 1px solid #f2f0f1ff;
+    color: #000000;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+.casual-page .rightside .navigate a:hover{
+    background-color: #000000;
+    color: #fff;
+}
+
+@media screen and (max-width: 400px) {
+
+    .casual-products-container .products-box{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 9rem;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .casual-page .leftside .top i{display: block;}
+    .casual-page{
+        padding: 0 50px 0 50px;
+        align-items: center;
+        justify-content: center;
+    }
+    /* .casual-page .rightside{display: none;} */
+    .casual-page .leftside{
+        top: 100px;
+        background-color: #fff;
+        position: fixed;
+        width: 100vw;
+        z-index: 400;
+        display: none;
+    }
+
+    .casual-products-container{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 1.5rem;
+    }
+    .filter-show{
+        display: block !important;
+        height: 60vh;
+        width: 30%;
+        display: grid !important;
+        gap: 2rem;
+        border: 1px solid #f2f0f1ff;
+        border-radius: 1rem;
+        padding: 20px;
+    }
+}
+
+
+
+
+  /* Media query for screens smaller than 500px */
+@media screen and (max-width: 500px) {
+    .casual-products-container{
+        grid-template-columns: auto;
+    }
+  }
+
+
+.add-cart{
+    display: flex;
+    gap: 1rem;
+}
+
+.add-cart input{
+    background-color: #F0F0F0;
+    border: none;
+    width: 2rem;
+}
+
+.add-cart form .plusmin{
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.add-cart  .input{
+    background-color: #F0F0F0;
+    border: none;
+    padding: 4px;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+}
+
+.add-cart  form .button{
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 9px;
+    width: 100%;
+    border-radius: 10px;
+}
+.add-cart form .button:hover{
+    background-color: #F0F0F0;
+    color: #000000;
+}

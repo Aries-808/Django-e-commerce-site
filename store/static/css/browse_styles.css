@@ -1,0 +1,125 @@
+
+.browsepage{
+    margin-top: 30px;
+    padding: 50px;
+    background-color: var(--gray);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.browsepage h1{
+    text-align: center;
+}
+.browse-container{
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 2%;
+}
+.browse-box.casual{
+    background-image: url(assets/casual.png);
+    background-size: 20rem;
+    background-repeat: no-repeat;
+    background-position: 230px -40px;
+}
+.browse-box.formal{
+    background-image: url(assets/formal.png);
+    background-size: 20rem;
+    background-repeat: no-repeat;
+    background-position: 230px -40px;
+}
+.browse-box.party{
+    background-image: url(assets/party.png);
+    background-size: 20rem;
+    background-repeat: no-repeat;
+    background-position: 230px -40px;
+}
+.browse-box.gym{
+    background-image: url(assets/gym.png);
+    background-size: 20rem;
+    background-repeat: no-repeat;
+    background-position: 230px -40px;
+}
+.browse-container .browse-box{
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+.browse-container .browse-box.shorter{
+    width: 400px;
+}
+.browse-container .browse-box.longer{
+    grid-column: span 2;
+}
+.browse-container h2{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+.browse-container img{
+    max-width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    .browse-container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .browse-box.casual{
+        background-position: 100px -40px;
+    }
+    .browse-box.formal{
+        background-position: 100px -40px;
+    }
+    .browse-box.party{
+        background-position: 100px -40px;
+    }
+    .browse-box.gym{
+        background-position: 100px -40px;
+    }
+}
+.add-cart{
+    display: flex;
+    gap: 1rem;
+}
+.add-cart input{
+    background-color: #F0F0F0;
+    border: none;
+    width: 2rem;
+}
+
+.add-cart form .plusmin{
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.add-cart  .input{
+    background-color: #F0F0F0;
+    border: none;
+    padding: 4px;
+    border-radius: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+}
+
+.add-cart  form .button{
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 9px;
+    width: 100%;
+    border-radius: 10px;
+}
+.add-cart form .button:hover{
+    background-color: #F0F0F0;
+    color: #000000;
+}

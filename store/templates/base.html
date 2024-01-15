@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% load static %}
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>E-commerce Website</title>
+
+  {% block links %}
+  <script src="https://kit.fontawesome.com/f17774750a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'css/master_index.css' %}">
+
+	<link rel="stylesheet" type="text/css"  href="{% static 'css/browse_styles.css' %}">
+  {% endblock links %}
+<style>
+    body {
+            background: #fff;
+        }
+
+        .jumbotron {
+            background: linear-gradient(to right, #e0e0e0, #f8f9fa);
+            color: #343a40;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+
+        }
+
+</style>
+</head>
+
+<body>
+  <!-- navbar -->
+
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg " aria-label="Thirteenth navbar example">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse d-lg-flex justify-content-lg-between" id="navbarsExample11">
+            <a class="navbar-brand col-lg-3 me-0" href="#">That's So Glossy</a>
+            <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/orders">Orders</a>
+              </li>
+
+              <li class="nav-item ">
+                <a class="nav-link " href="/shore">Shop</a>
+
+              </li>
+            </ul>
+            <div class="d-lg-flex justify-content-lg-end">
+
+                <form method="get" action="{% url 'homepage' %}">
+                    <div class="input-group ">
+                        <input type="text" class="form-control" placeholder="Search products" name="q" value="{{ request.GET.q }}">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="dropdown d-flex align-items-lg-center justify-content-lg-center">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {% if request.session.customer %}
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                        {% else %}
+                            <a class="dropdown-item" href="/signup">Signup</a>
+                            <a class="dropdown-item" href="/login">Login</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <a href="/cart" class="cart-icon d-flex align-items-lg-center justify-content-lg-center">
+                  <i class="fa-solid text-light fa-cart-shopping m-3"></i>
+                </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+  {% block content %}{% endblock %}
+
+
+    <footer class="footer text-center ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- Brand Icon -->
+                    <img src="{% static 'images/logo.jpeg' %}" alt="Brand Icon" style="width: 50px; height: 50px;">
+                    <span class="copyright">© 2023</span>
+                </div>
+                <div class="col-md-4">
+                    <!-- Social Media Icons -->
+                    <a href="https://www.tiktok.com/@suhmerfryer?_t=8iGzn9w9zLe&_r=1" class="text-white"><i class="fab fa-tiktok fa-lg"></i></a>
+                    <a href="https://wa.link/oqfoqy" class="text-white ml-3"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
+                    <a href="https://www.instagram.com/suhmerfryer?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr" class="text-white ml-3"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="mailto:Thatssotr5ndy@gmail.com" class="text-white ml-3">
+                        <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <!-- Contact Information -->
+                    <p>Address: 2020 5th Street, PO Box 294, C/O Suhmer Fryer, Davis, CA, USA</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
